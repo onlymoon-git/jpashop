@@ -1,0 +1,23 @@
+#개발의 application.yml 과 TEST의 application.yml 의 설정은 다르게 가져가는 것이 맞다.
+
+spring:
+# 스프링부트는 별도의 설정이 없으면 기본적으로 Memory Mode로 돌린다.
+#  datasource:
+#    url: jdbc:h2:mem:test #H2 DB를 띄울 필요없이 DB Test 가능
+#    username: sa
+#    password:
+#    driver-class-name: org.h2.Driver
+#
+#  jpa:
+#    hibernate:
+#      ddl-auto: create #test에서만 사용해야 함. application 실행 시점에서 엔터티를 다 지우고 테이블 새로 생성
+                 # ddl-auto: 의 설정이 없으면 기본적으로 create-drop 으로 돌아간다.
+#    properties:
+#      hibernate:
+#        # show_sql: true #system.out을 통해서 log를 남김
+#        format_sql: true
+logging:
+  level:
+    org.hibernate.SQL: debug
+    org.hibernate.type: trace #스프링 부트 2.x, hibernate5
+  # org.hibernate.orm.jdbc.bind: trace #스프링 부트 3.x, hibernate6
